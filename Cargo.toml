@@ -1,0 +1,23 @@
+[package]
+name = "channels-3u-1d"
+version = "0.1.0"
+edition = "2021"
+authors = ["Wink Saville <wink@saville.com>"]
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+cortex-m = { version = "0.7.5", features = ["critical-section-single-core"] }
+embedded-hal = "0.2.7"
+switch-hal = "0.4.0"
+stm32f4xx-hal = { version = "0.13.2", features = ["stm32f446"]}
+unwrap-infallible = "0.1.5"
+rtt-target = "0.5.0"
+cortex-m-rt = "0.7.1"
+nucleo-f446re = "0.1.0"
+panic-halt = "0.2.0"
+
+#[profile.release]
+#codegen-units = 1 # better optimizations
+#debug = true # symbols are nice and they don't increase the size on Flash
+#lto = true # better optimizations
