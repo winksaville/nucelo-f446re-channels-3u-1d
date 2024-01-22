@@ -1,17 +1,23 @@
-# nucleo-f446re-channeld-3u-1d
+# nucleo-f446re-channels-3u-1d
 
 This is basically [all-the-channels](https://probe.rs/docs/tools/cargo-embed/#all-the-channels!)
-from probe-rs docs. I've tweaked it slightly adding delay, although ATM I was expecting to see
-the logs written to "Up two" tab, but it's blank?
+from probe-rs docs. I've tweaked it slightly adding delay. Note initially the
+fn keys couldn't switch between the tabs. That was resolved by changing the
+Terminator preferences so F1 and F11 were defined as Ctrl-F1 and Ctrl-F11 now
+they don't interfere with `cargo-embed` use of fn keys. A longer term solution
+is to be able to define the key bindings in the `cargo-embed` config file.
 
 # Pre-requisites
 
-TODO: Add pre-requisites
+See `probe-rs`
+[install instructions](https://probe.rs/docs/getting-started/installation/) for your platform. For my Arch Linux platform it required only `libftdi` other
+packages were already installed, so YMMV :)
 
 # Build and run using cargo-embed
 
-Run `cargo embed with_rtt` to build and flash the program to the target
-and the result should be the initial blank screen with 3 tabs:
+Run `cargo embed with_rtt` or `cargo embed` to build and flash
+the program to the target and the result should be the initial
+blank screen with 3 tabs:
 
 ![cargo-embed with_rtt initial screen](Up-zero-initial-screen.png)
 
@@ -28,22 +34,6 @@ see the First and Second line:
 
 If you click on the F2 (function key, on my keyboard I press Ctrl-F2) the tab will switch to "Up one":
 ![cargo-embed with_rtt up one](Up-one.png)
-
-**Note for some reason the "Up two" tab, which should be F3 cannot be selected :(**
-But you can switch back and forth between "Up zero" and "Up one" using F1 and F2 (Ctrl-F1 & Ctrl-F2).
-
-After hitting `Ctrl-C` to stop the program, the output should look like this:
-```
-wink@3900x 24-01-21T21:21:28.440Z:~/prgs/rust/myrepos/nucleo-f446re-channels-3u-1d (main)
-$ cargo embed with_rtt
-    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
-      Config with_rtt
-      Target /home/wink/prgs/rust/myrepos/nucleo-f446re-channels-3u-1d/target/thumbv7em-none-eabi/debug/channels-3u-1d
-     Erasing sectors ✔ [00:00:00] [#######################] 16.00 KiB/16.00 KiB @ 40.15 KiB/s (eta 0s )
- Programming pages   ✔ [00:00:00] [#######################] 13.00 KiB/13.00 KiB @ 37.54 KiB/s (eta 0s )    Finished flashing in 0.763s
-Shutting down.
-wink@3900x 24-01-21T21:25:31.293Z:~/prgs/rust/myrepos/nucleo-f446re-channels-3u-1d (main)```
-```
 
 ## License
 

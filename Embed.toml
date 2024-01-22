@@ -1,6 +1,10 @@
 [default.general]
 chip = "STM32F446RETx"
 
-[with_rtt.rtt]
+# Added so that it's not necessary to specify the `with_rtt` profile.
+# and `cargo embed` or `cargo embed with_rtt` will work out of the box.
+[default.rtt]
 enabled = true
 
+[with_rtt.rtt]
+enabled = true
